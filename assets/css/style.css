@@ -35,6 +35,28 @@
     padding: 10px;
     background-color: var(--secondary);
     color: white;
+    font-size: 300%;
+  }
+
+    #flip-city {
+    padding:30px;
+    margin: 10px;
     font-size: 250%;
 
-  }
+    }
+
+    #recently-flipped{
+    padding:30px;
+    margin:10px;
+    font-size:200%;
+    }
+
+    .main-body {
+    text-align: center;
+    margin:10px;
+    font-size:300%;
+    }
+
+    .flip-btn {
+        
+    }
