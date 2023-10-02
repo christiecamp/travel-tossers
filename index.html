@@ -16,21 +16,29 @@
 
         <!-- side search & recently viewed -->
         <nav class="navbar">
-          <h3>Search for City</h3>
-          <!-- search form with button -->
-          <form id="search">
-            <input id="city" type="text" placeholder="Enter city name"></input>
-            <button id="submit" class="view-btn" type="submit">View</button>
-          </form>
-          <h3>Recently Viewed</h3>
+          <div class="search-city">
+            <h3>Search for City</h3>
+            <!-- search form with button -->
+               <form id="search">
+                  <input id="city" type="text" placeholder="Enter city name">
+                  <button id="submit" class="view-btn" type="submit">View</button>
+              </form>
+          </div>
+
+          <div class="recently-viwed">
+            <h3>Recently Viewed</h3>
+          </div>   
         </nav>
 
       <!-- main body -->
         <main class="main-body">
+          <div class = "row">
         <!-- current weather -->
-        <section class="current">
+          <section class="current">
           <h4>Current Forecast</h4>
-        </section>
+          </section>
+        </div>
+       
 
         <!-- 5-day forecast -->
         <section class="future">

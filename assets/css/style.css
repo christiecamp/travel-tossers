@@ -1,10 +1,6 @@
 :root {
-    --primary: #ccdad1;
-    --secondary: #9caea9;
-    --tertiary: #788585;
-    --light-dark: #6f6866;
-    --dark: #38302e;
-    --border-radius: .3rem;
+    --primary: white;
+    --secondary: blue;
   }
   
   * {
@@ -33,13 +29,22 @@
     line-height: 1.25;
   }
   
-  main {
-    margin: 20px auto;
-    width: 94%;
+  .main-header {
+    text-align: center;
   }
-  
-  p {
-    font-size: 1.2rem;
+
+  .nav navbar {
+
   }
-  
-   
+
+  .recently-viewed {
+
+  }
+
+  .main-body {
+
+  }
+
+  .future {
+
+  }
