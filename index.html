@@ -19,39 +19,41 @@
         <!-- side search & recently viewed -->
         <nav>
           <section id="flip-city">
-            <div class ="container">
+            <div class="container">
             <h2>Search for City</h2>
             <!-- search form with button -->
                <form id="search">
                   <input id="city" type="text" placeholder="Enter city name">
-                  <button id="submit-btn" class="button" type="submit">FLIP</button>
+                  <button id="submit" class="flip-btn" type="submit">FLIP</button>
               </form>
             </div>
             </section>
 
-          <div class="recently-flipped">
-            <div class ="container">
+          <section id="recently-flipped">
+            <div class="table-container">
             <h2>Recently Viewed</h2>
             </div>
-          </div>   
+          </section>   
         </nav>
 
         <!-- main body -->
         <main class="main-body">
     
         <!-- current weather -->
-          <section class="current-flip">
+          <section id="current-flip">
           <h2>Current Forecast</h2>
           </section>
       
        
 
         <!-- 5-day forecast -->
-        <section class="future-flip">
-          <div class = "container">
-          <h2>5-Day Forecast</h2>
-          <!-- forecast -->
-          <div class ="row fiveFlip"></div>
+        <section id="future-flip">
+          <div class="container">
+            <h2>5-Day Forecast</h2>
+            <div class="content">
+            <!-- forecast -->
+              <div class="row fiveFlip"></div>
+            </div>
           </div>
         </section>
 
