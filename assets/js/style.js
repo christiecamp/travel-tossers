@@ -5,16 +5,16 @@ var city = "Richmond"; //base city
 var currentDate = moment(). format('dddd, MMMM Do YYYY');
 var currentTime = moment(). format('YYYY-MM-DD HH:MM:SS');
 
-$(document).ready(function () {
-    
+
 //city searched list
 var cityList = [];
-$('.search').on("click", function (event){
+$('#submit').on("click", function (event){
     event.preventDefault();
     city = $(this).parent('.btn').siblings('.textVal').val().trim();
     if (city === "") { 
         return;
     };
+    cityList.push(city);
     //saves searched city into local storage
     localStorage.setItem('city', JSON.stringify(cityList));
     tossCoin ();
@@ -36,11 +36,8 @@ fetch(url)
     console.log(data);
 
 //setting the current city on the page
-var cityCurrent = document.getElementById ("current-city");
+var cityCurrent = document.getElementById ("current-flip");
 cityCurrent.textContent = city;
 //function for getting weather
 })
 }
-
-
-});
