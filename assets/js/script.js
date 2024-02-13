@@ -1,20 +1,19 @@
 //api key
-let key = "9b9f310efa391a785a8ba71112f98ed7";
+let key = "99b446878b389abb2059a75e3173c953";
 //array to hold search history
 let searchHistory = [];
 let lastSearched = "";
 
 //api for open weather
 let getWeather = function (city) {
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
-    "&appid=${key}=imperial`;
+  let api =
+  'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=99b446878b389abb2059a75e3173c953&units=imperial';
 
   //fetch api
-  fetch(apiUrl)
+  fetch(api)
     .then(function (response) {
       if (response.ok) {
-        response.json().then(function (data, city) {
+        response.json().then(function (data) {
           displayWeather(data);
         });
       } else {
@@ -70,7 +69,7 @@ let displayWeather = function (weather) {
       weather.coord.lat +
       "&lon=" +
       weather.coord.lon +
-      `&appid=${key}`
+      `&appid=99b446878b389abb2059a75e3173c953`
   ).then(function (response) {
     response.json().then(function (data) {
       // display the uv index value
@@ -95,7 +94,7 @@ let displayWeather = function (weather) {
   fetch(
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
       weather.name +
-      `&appid=${key}&units=imperial`
+      `&appid=${key}=imperial`
   ).then(function (response) {
     response.json().then(function (data) {
       //clear previous entries
@@ -107,7 +106,7 @@ let displayWeather = function (weather) {
           `
           <div class="col-md-2 m-2 py-3 card text-white bg-primary">
             <div class="card-body p-1">
-              <h3 class="card-title">` +
+              <h3 class="card-title mx-2">` +
           dayjs(data.list[i].dt * 1000).format("MM/DD/YY") +
           `</h3>
               <img src="https://openweathermap.org/img/wn/` +
