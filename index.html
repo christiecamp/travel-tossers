@@ -3,83 +3,102 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <!--bootsrap link -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-     <!-- weather icons link -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"/>
+    <!--bootsrap link -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <!-- weather icons link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"
+    />
     <!-- css link -->
-    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Travel Tossers</title>
   </head>
- 
-    <body class="body">
 
-      <!-- header -->
-      <header class="bg-dark">
-          <h1 class="h1 text-light text-center">Travel Tossers</h1>
-      </header>
+  <body class="body">
+    <!-- header -->
+    <header class="bg-dark">
+      <h1 class="h1 text-light text-center">Travel Tossers</h1>
+    </header>
 
-      <!-- main body -->
-      <main class="m-4 p-4">
-        <div class="col-md-12">
-          <div class="row">
+    <!-- main body -->
+    <main class="m-4 p-4">
+      <div class="col-md-12">
+        <div class="row">
 
-            <!-- search section -->
-            <div class="col-md-3">
-              <!-- search form -->
-              <h5>search city:</h5>
-              <form class="form-inline" id="search-form">
-                <input type="search" class="form-control mb-3 ds-input" id="cityname" placeholder="enter city name">
-                <button type="submit" class="btn btn-primary mb-3">
-                  <span class="oi oi-magnifying-glass"></span>
-                </button>
-              </form>
-              <!-- search history - link-->
-              <ul class="list-group" id="search-history"></ul>                      
-            </div>
+          <!-- search section -->
+          <div class="col-md-3">
+            <!-- search form -->
+            <h5>search city:</h5>
+            <form class="form-inline" id="search-form">
+              <input
+                type="search"
+                class="form-control mb-3 ds-input"
+                id="cityname"
+                placeholder="enter city name"
+              />
+              <button type="submit" class="btn btn-primary mb-3">
+                <span class="oi oi-magnifying-glass"></span>
+              </button>
+            </form>
+            <!-- search history - link-->
+            <ul class="list-group" id="search-history"></ul>
+          </div>
 
-            <!-- current weather -->
-            <div class="col-md-9">
-              <div class="card-body">
-                <div class="d-flex flex-row">
-                  <h2 id="city-name" class="card-title align"></h2>
-                </div>
-                <!-- current temp -->
-                <h6 class="card-subtitle text-muted" id="main-city-temp">Temperature: </h6>
-                <!-- current humidity -->
-                <h6 class="card-subtitle mt-3 text-muted" id="main-city-humid">Humidity: </h6>
-                <!-- current wind speed -->
-                <h6 class="card-subtitle mt-3 text-muted" id="main-city-wind">Wind Speed: </h6>
-                <!-- current UV index -->
-                <h6 class="card-subtitle mt-3 text-muted" id="main-city-uv">UV Index: <span id="uv-box" class="px-2 py-1 mb-1 text-light rounded font-weight-normal"></span></h6>
+          <!-- current weather -->
+          <div class="col-md-9">
+            <div class="card-body">
+              <div class="d-flex flex-row">
+                <h2 id="city-name" class="card-title align-self-center"></h2>
               </div>
-            </div>
-
-            <!-- 5-day forecast -->
-            <div class="container">
-              <h2 class="card-title mt-3">5-Day Forecast</h2>
-              <div class=" row justify-content-between" id="five-day">
-                <!-- forecast - filled by API -->
-              </div>
+              <!-- current temp -->
+              <h6 class="card-subtitle text-muted" id="main-city-temp">
+                Temperature:
+              </h6>
+              <!-- current humidity -->
+              <h6 class="card-subtitle mt-3 text-muted" id="main-city-humid">
+                Humidity:
+              </h6>
+              <!-- current wind speed -->
+              <h6 class="card-subtitle mt-3 text-muted" id="main-city-wind">
+                Wind Speed:
+              </h6>
+              <!-- current UV index -->
+              <h6 class="card-subtitle mt-3 text-muted" id="main-city-uv">
+                UV Index:
+                <span id="uv-box"class="px-2 py-1 mb-1 text-light rounded font-weight-normal"></span>
+              </h6>
             </div>
           </div>
-        </div>
-      </main>
 
-      <!-- footer -->
-      <footer class="footer">
-        <div class="container">
-          <h2>Travel Tossers</h2>
-          <p>© 2024 Travel Tossers</p>
-        </div>
-      </footer>
+          <!-- 5-day forecast -->
+          <div>
+            <h2 class="card-title mt-3">5-Day Forecast</h2>
+            <div class="row justify-content-between" id="five-day">
+              <!-- forecast - filled by API -->
+            </div>
+          </div>
 
-      <!-- js links -->
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <script src="./assets/js/script.js"></script>
-  
-    </body>
-  </html>
+        </div>
+      </div>
+    </main>
+    
+    <!-- footer -->
+    <footer class="footer">
+      <div class="container">
+          <h6>© 2024 Travel Tossers</h6>
+      </div>
+    </footer>
+
+    <!-- js links -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+  </body>
+</html>
