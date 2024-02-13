@@ -29,20 +29,31 @@
     margin: 0;
   }
   
-  .main-header {
+  .header {
     text-align: center;
     margin: 0px;
     padding: 10px;
-    background-color: var(--secondary);
     color: white;
     font-size: 300%;
     }
 
-    #flip-city {
-    padding:30px;
-    margin: 10px;
-    font-size: 250%;
-    }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     #search{
     padding:30px;
@@ -71,4 +82,12 @@
     .card {
     margin: 10px;
     min-height: 300px;
+    }
+
+    .footer {
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+
+    font-size: 100%;
     }
