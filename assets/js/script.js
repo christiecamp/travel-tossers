@@ -60,13 +60,13 @@ let displayWeather = function (weather) {
     );
   //temp
   $("#city-temp").text(
-    "Temperature: " + weatherData.main.temp.toFixed(1) + "°F"
+    "Temperature: " + weather.main.temp.toFixed(1) + "°F"
   );
   //humidity
-  $("#city-humid").text("Humidity: " + weatherData.main.humidity + "%");
+  $("#city-humid").text("Humidity: " + weather.main.humidity + "%");
   //wind
   $("#city-wind").text(
-    "Wind Speed: " + weatherData.wind.speed.toFixed(1) + " mph"
+    "Wind Speed: " + weather.wind.speed.toFixed(1) + " mph"
   );
 
   //lat & lon to make uv api call
@@ -157,7 +157,7 @@ let saveSearch = function (city) {
   //save last searched city
   localStorage.setItem("lastSearched", JSON.stringify(lastSearched));
   //display array
-  displaySearch();
+  loadSearch();
 };
 
 //search history function
@@ -184,7 +184,7 @@ let loadSearch = function () {
     }
 };
 
-//load serach history
+//load search history
 loadSearch();
 
 //start on page with last searched
