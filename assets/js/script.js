@@ -6,17 +6,16 @@ let lastSearched = "";
 
 //api for open weather
 let getWeather = function (city) {
-  let apiUrl =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
-    "&appid=ce39e7239416ad754359ca762d28521a&units=imperial";
+    "&appid=${key}=imperial`;
 
   //fetch api
   fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
-        response.json().then(function (data) {
-          displayWeather(data, city);
+        response.json().then(function (data, city) {
+          displayWeather(data);
         });
       } else {
         alert("Error: " + response.statusText);
@@ -59,15 +58,11 @@ let displayWeather = function (weather) {
       `<img src="https://openweathermap.org/img/wn/${weather.weather[0].icon}.png"></img>`
     );
   //temp
-  $("#city-temp").text(
-    "Temperature: " + weather.main.temp.toFixed(1) + "°F"
-  );
+  $("#city-temp").text("Temperature: " + weather.main.temp.toFixed(1) + "°F");
   //humidity
   $("#city-humid").text("Humidity: " + weather.main.humidity + "%");
   //wind
-  $("#city-wind").text(
-    "Wind Speed: " + weather.wind.speed.toFixed(1) + " mph"
-  );
+  $("#city-wind").text("Wind Speed: " + weather.wind.speed.toFixed(1) + " mph");
 
   //lat & lon to make uv api call
   fetch(
@@ -110,23 +105,23 @@ let displayWeather = function (weather) {
         //insert data
         let forecast =
           `
-                    <div class="col-md-2 m-2 py-3 card text-white bg-primary">
-                        <div class="card-body p-1">
-                            <h5 class="card-title">` +
-          dayjs(data.list[i].dt * 1000).format("MM/DD/YYYY") +
-          `</h5>
-                            <img src="https://openweathermap.org/img/wn/` +
+          <div class="col-md-2 m-2 py-3 card text-white bg-primary">
+            <div class="card-body p-1">
+              <h3 class="card-title">` +
+          dayjs(data.list[i].dt * 1000).format("MM/DD/YY") +
+          `</h3>
+              <img src="https://openweathermap.org/img/wn/` +
           data.list[i].weather[0].icon +
           `.png" alt="rain">
-                            <p class="card-text">Temp: ` +
+              <p class="card-text">Temp: ` +
           data.list[i].main.temp +
           `</p>
-                            <p class="card-text">Humidity: ` +
+              <p class="card-text">Humidity: ` +
           data.list[i].main.humidity +
           `</p>
-                        </div>
-                    </div>
-                    `;
+            </div>
+          </div>
+        `;
         //append to the page
         $("#five-day").append(forecast);
       }
@@ -162,42 +157,47 @@ let saveSearch = function (city) {
 
 //search history function
 let loadSearch = function () {
-    searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
-    lastSearched = JSON.parse(localStorage.getItem("lastSearched"));
+  searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+  lastSearched = JSON.parse(localStorage.getItem("lastSearched"));
 
-    //check if array is empty
-    if (!searchHistory) {
-        searchHistory = [];
-    }
-    //check if last searched is empty
-    if (!lastSearched) {
-        lastSearched = "";
-    }
+  //check if array is empty
+  if (!searchHistory) {
+    searchHistory = [];
+  }
+  //check if last searched is empty
+  if (!lastSearched) {
+    lastSearched = "";
+  }
 
-    //clear previous values
-    $("#search-history").empty();
+  //clear previous values
+  $("#search-history").empty();
 
-    //loop through all citys found in array
-    for(i =0 ; i < searchHistory.length; i++) {
-        //add city as a link, set id, append
-        $("#search-history").append("<a href='#' class='list-group-item list-group-item-action' id='" + searchHistory[i] + "'>" + searchHistory[i] + "</a>");
-    }
+  //loop through all citys found in array
+  for (i = 0; i < searchHistory.length; i++) {
+    //add city as a link, set id, append
+    $("#search-history").append(
+      "<a href='#' class='list-group-item list-group-item-action' id='" +
+        searchHistory[i] +
+        "'>" +
+        searchHistory[i] +
+        "</a>"
+    );
+  }
 };
 
 //load search history
 loadSearch();
 
 //start on page with last searched
-if (lastSearched != ''){
-    getWeather(lastSearched);
+if (lastSearched != "") {
+  getWeather(lastSearched);
 }
 
 //event handlers
 $("#search-form").on("submit", searchSubmitHandler);
-$("#search-history").on("click", function(event) {
-    //get id value
-    let city = $(event.target).closest('a').attr('id');
-    //call getWeather function
-    getWeather(city);
+$("#search-history").on("click", function (event) {
+  //get id value
+  let city = $(event.target).closest("a").attr("id");
+  //call getWeather function
+  getWeather(city);
 });
-
