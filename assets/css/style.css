@@ -5,58 +5,10 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   @font-face {
     font-family: "Raleway", sans-serif;
     src: url("../fonts/Raleway-ExtraLight.ttf") format("truetype"); /*font ttf */
   }
-}
-
-body {
-  background-color: var(--primary);
-  margin: 0;
-  padding: 0;
-  line-height: 1.5;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-}
-
-.h1-container {
-  padding: 2px;
-}
-
-.form-container {
-  padding: 10px;
-}
-
-.search-label {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.search-input {
-  width: 100%;
-  height: 40px;
-  border-color: darkcyan;
-  border-width: thin;
-  padding: 0 15px;
-}
-
-.search-btn {
-  padding: 10px 15px;
-}
-
-.history-container {
-  padding: 10px;
 }
 
 .footer {
