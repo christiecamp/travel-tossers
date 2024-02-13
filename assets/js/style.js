@@ -1,3 +1,5 @@
+//api key
+let key = "9b9f310efa391a785a8ba71112f98ed7";
 //array to hold search history
 let searchHistory = [];
 let lastSearched = "";
@@ -45,6 +47,36 @@ let searchSubmitHandler = function (event) {
     alert("Please enter a city name");
   }
 };
+
+//display weather
+let displayWeather = function (weather) {
+    //format and display values
+    $("#city-name").text(weather.name + " (" + dayjs(weather.dt * 1000).format("MM/DD/YYYY") + ") ").append(`<img src="https://openweathermap.org/img/wn/${weather.weather[0].icon}.png"></img>`);
+    //temp
+    $("#city-temp").text("Temperature: " + weatherData.main.temp.toFixed(1) + "°F");
+    //humidity
+    $("#city-humid").text("Humidity: " + weatherData.main.humidity + "%");
+    //wind
+    $("#city-wind").text("Wind Speed: " + weatherData.wind.speed.toFixed(1) + " mph");
+
+    //lat & lon to make uv api call
+    fetch("https://api.openweathermap.org/data/2.5/uvi?lat=" + weather.coord.lat + "&lon="+ weather.coord.lon + `&appid=${key}`)
+        .then(function(response) {
+            response.json().then(function(data) {
+
+                // display the uv index value
+                $("#uv-box").text(data.value);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
