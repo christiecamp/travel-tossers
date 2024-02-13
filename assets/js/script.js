@@ -160,30 +160,44 @@ let saveSearch = function (city) {
   displaySearch();
 };
 
-//load search history
+//search history function
+let loadSearch = function () {
+    searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+    lastSearched = JSON.parse(localStorage.getItem("lastSearched"));
 
-//function that will fetch data from open weather API
-function tossCoin(city) {
-  var url =
-    "https://api.openweathermap.org/data/2.5/forecast?q=" +
-    city +
-    "&units=imperial&appid=" +
-    key;
-  fetch(url)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      localStorage.setItem("city", JSON.stringify(data));
-      console.log(data);
+    //check if array is empty
+    if (!searchHistory) {
+        searchHistory = [];
+    }
+    //check if last searched is empty
+    if (!lastSearched) {
+        lastSearched = "";
+    }
 
-      //setting the current city on the page
-      var cityCurrent = document.getElementById("current-flip");
-      cityCurrent.textContent = city;
-      //function for getting weather
-    });
+    //clear previous values
+    $("#search-history").empty();
+
+    //loop through all citys found in array
+    for(i =0 ; i < searchHistory.length; i++) {
+        //add city as a link, set id, append
+        $("#search-history").append("<a href='#' class='list-group-item list-group-item-action' id='" + searchHistory[i] + "'>" + searchHistory[i] + "</a>");
+    }
 };
 
+//load serach history
+loadSearch();
 
+//start on page with last searched
+if (lastSearched != ''){
+    getWeather(lastSearched);
+}
+
+//event handlers
+$("#search-form").on("submit", searchSubmitHandler);
+$("#search-history").on("click", function(event) {
+    //get id value
+    let city = $(event.target).closest('a').attr('id');
+    //call getWeather function
+    getWeather(city);
+});
 
