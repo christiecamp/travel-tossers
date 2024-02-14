@@ -1,16 +1,18 @@
 //api key
-let key = "99b446878b389abb2059a75e3173c953";
+let key = "ce39e7239416ad754359ca762d28521";
 //array to hold search history
 let searchHistory = [];
 let lastSearched = "";
 
 //api for open weather
 let getWeather = function (city) {
-  let api =
-  'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=99b446878b389abb2059a75e3173c953&units=imperial';
+  let apiUrl =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    city +
+    "&appid=ce39e7239416ad754359ca762d28521a&units=imperial";
 
   //fetch api
-  fetch(api)
+  fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
@@ -64,14 +66,10 @@ let displayWeather = function (weather) {
   $("#city-wind").text("Wind Speed: " + weather.wind.speed.toFixed(1) + " mph");
 
   //lat & lon to make uv api call
-  fetch(
-    "https://api.openweathermap.org/data/2.5/uvi?lat=" +
-      weather.coord.lat +
-      "&lon=" +
-      weather.coord.lon +
-      `&appid=99b446878b389abb2059a75e3173c953`
-  ).then(function (response) {
-    response.json().then(function (data) {
+  // use lat & lon to make the uv api call
+  fetch("https://api.openweathermap.org/data/2.5/uvi?lat=" + weather.coord.lat + "&lon="+ weather.coord.lon + "&appid=ce39e7239416ad754359ca762d28521a")
+  .then(function(response) {
+      response.json().then(function(data) {
       // display the uv index value
       $("#uv-box").text(data.value);
 
@@ -94,7 +92,7 @@ let displayWeather = function (weather) {
   fetch(
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
       weather.name +
-      `&appid=${key}=imperial`
+      "&appid=ce39e7239416ad754359ca762d28521a&units=imperial"
   ).then(function (response) {
     response.json().then(function (data) {
       //clear previous entries
@@ -106,8 +104,8 @@ let displayWeather = function (weather) {
           `
           <div class="col-md-2 m-2 py-3 card text-white bg-primary">
             <div class="card-body p-1">
-              <h3 class="card-title mx-2">` +
-          dayjs(data.list[i].dt * 1000).format("MM/DD/YY") +
+              <h3 class="card-title">` +
+          dayjs(data.list[i].dt * 1000).format("MM/DD/YY  ***") +
           `</h3>
               <img src="https://openweathermap.org/img/wn/` +
           data.list[i].weather[0].icon +
