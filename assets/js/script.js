@@ -116,6 +116,9 @@ let displayWeather = function (weather) {
               <p class="card-text">Humidity: ` +
           data.list[i].main.humidity +
           `</p>
+              <p class="card-text">Wind: ` +
+          data.list[i].wind.speed +
+          `</p>
             </div>
           </div>
         `;
